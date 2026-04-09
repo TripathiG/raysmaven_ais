@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
-import { ArrowRight, CheckCircle2, Quote, TrendingUp, ShieldCheck, Users, ChevronRight } from "lucide-react";
+import { ArrowRight, CheckCircle2, Quote, TrendingUp, ShieldCheck, Users, ChevronRight, BarChart3, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
@@ -31,10 +31,10 @@ export default function Home() {
                 Rays Maven provides comprehensive financial, tax, and strategic advisory services designed to help your business navigate complexity and achieve sustainable success.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="bg-olive hover:bg-olive-dark text-warm-white rounded-full px-8 py-6 text-lg">
+                <Button asChild nativeButton={false} size="lg" className="bg-olive hover:bg-olive-dark text-warm-white rounded-full px-8 py-6 text-lg">
                   <Link to="/contact">Book a Consultation</Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="border-stone-300 text-stone-900 hover:bg-stone-100 rounded-full px-8 py-6 text-lg">
+                <Button asChild nativeButton={false} variant="outline" size="lg" className="border-stone-300 text-stone-900 hover:bg-stone-100 rounded-full px-8 py-6 text-lg">
                   <Link to="/services">Explore Services</Link>
                 </Button>
               </div>
@@ -68,7 +68,7 @@ export default function Home() {
               <div className="space-y-4">
                 <h2 className="text-4xl md:text-5xl font-serif font-bold text-stone-900">Excellence in Financial Stewardship</h2>
                 <p className="text-lg text-stone-600 leading-relaxed">
-                  At Rays Maven, we believe that every business deserves a partner who understands their vision. Our firm is built on the pillars of integrity, innovation, and unwavering commitment to our clients' growth.
+                  At Rays Maven, we believe that every business deserves a partner who understands their vision. Since opening our doors in 2018, we’re proud to say that each year we have a bigger list of returning and new clients.
                 </p>
               </div>
               <ul className="space-y-4">
@@ -84,7 +84,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <Button asChild variant="link" className="text-olive p-0 h-auto text-lg font-semibold group">
+              <Button asChild nativeButton={false} variant="link" className="text-olive p-0 h-auto text-lg font-semibold group">
                 <Link to="/about" className="flex items-center gap-2">
                   Learn more about our firm <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </Link>
@@ -106,19 +106,19 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                title: "Audit & Assurance",
-                desc: "Rigorous independent examination of financial statements to provide stakeholders with confidence.",
+                title: "Business Advisory",
+                desc: "Tailored solutions for complex challenges, focusing on maximizing value through specialized industry expertise.",
+                icon: Users
+              },
+              {
+                title: "Due Diligence",
+                desc: "In-depth analysis to safeguard investments, identifying critical risks and quantifying tax exposures.",
                 icon: ShieldCheck
               },
               {
-                title: "Tax Consultancy",
-                desc: "Strategic tax planning to minimize liabilities and ensure full compliance with evolving regulations.",
-                icon: TrendingUp
-              },
-              {
-                title: "Business Advisory",
-                desc: "Expert guidance on mergers, acquisitions, and strategic growth initiatives for long-term success.",
-                icon: Users
+                title: "Banking & Finance",
+                desc: "Comprehensive advisory for financial transactions, debt syndication, and regulatory compliance.",
+                icon: BarChart3
               }
             ].map((service, i) => (
               <Card key={i} className="bg-warm-white border-none shadow-sm hover:shadow-md transition-shadow group">
@@ -128,7 +128,7 @@ export default function Home() {
                   </div>
                   <h3 className="text-2xl font-serif font-bold text-stone-900">{service.title}</h3>
                   <p className="text-stone-600 leading-relaxed">{service.desc}</p>
-                  <Button asChild variant="link" className="text-olive p-0 h-auto font-semibold group/btn">
+                  <Button asChild nativeButton={false} variant="link" className="text-olive p-0 h-auto font-semibold group/btn">
                     <Link to="/services" className="flex items-center gap-2">
                       Read more <ChevronRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
                     </Link>
@@ -138,7 +138,7 @@ export default function Home() {
             ))}
           </div>
           <div className="mt-16 text-center">
-            <Button asChild className="bg-olive hover:bg-olive-dark text-warm-white rounded-full px-10 py-6">
+            <Button asChild nativeButton={false} className="bg-olive hover:bg-olive-dark text-warm-white rounded-full px-10 py-6">
               <Link to="/services">View All Services</Link>
             </Button>
           </div>
@@ -203,19 +203,25 @@ export default function Home() {
               <p className="text-lg text-stone-400 leading-relaxed">
                 Our team consists of seasoned professionals with decades of experience in global finance, law, and business strategy. We bring a diverse set of perspectives to every challenge.
               </p>
-              <Button asChild className="bg-olive hover:bg-olive-dark text-warm-white rounded-full px-10 py-6">
+              <Button asChild nativeButton={false} className="bg-olive hover:bg-olive-dark text-warm-white rounded-full px-10 py-6">
                 <Link to="/team">Meet Our Experts</Link>
               </Button>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              {[1, 2, 3, 4].map((i) => (
-                <div key={i} className={cn("aspect-square rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500", i % 2 === 0 ? "mt-8" : "")}>
+              {[
+                "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400&h=400",
+                "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400&h=400",
+                "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400&h=400",
+                "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400&h=400"
+              ].map((url, i) => (
+                <div key={i} className={cn("aspect-square rounded-2xl overflow-hidden transition-all duration-500 group relative", i % 2 === 0 ? "mt-8" : "")}>
                   <img 
-                    src={`https://picsum.photos/seed/team${i}/400/400`} 
+                    src={url} 
                     alt="Team member" 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
                     referrerPolicy="no-referrer"
                   />
+                  <div className="absolute inset-0 bg-olive/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
               ))}
             </div>
@@ -231,7 +237,7 @@ export default function Home() {
               <h2 className="text-4xl md:text-5xl font-serif font-bold text-stone-900">Industry Insights</h2>
               <p className="text-lg text-stone-600 max-w-xl">Stay updated with the latest trends in finance, taxation, and business innovation.</p>
             </div>
-            <Button asChild variant="outline" className="border-olive text-olive hover:bg-olive hover:text-warm-white rounded-full px-8">
+            <Button asChild nativeButton={false} variant="outline" className="border-olive text-olive hover:bg-olive hover:text-warm-white rounded-full px-8">
               <Link to="/blog">View All News</Link>
             </Button>
           </div>
@@ -287,7 +293,7 @@ export default function Home() {
           <p className="text-xl text-warm-white/80 max-w-2xl mx-auto">
             Schedule a confidential consultation with our experts today and discover how we can transform your financial future.
           </p>
-          <Button asChild size="lg" className="bg-warm-white text-olive hover:bg-warm-cream rounded-full px-12 py-8 text-xl font-bold">
+          <Button asChild nativeButton={false} size="lg" className="bg-warm-white text-olive hover:bg-warm-cream rounded-full px-12 py-8 text-xl font-bold">
             <Link to="/contact">Get in Touch</Link>
           </Button>
         </div>

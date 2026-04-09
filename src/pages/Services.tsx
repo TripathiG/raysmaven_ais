@@ -1,42 +1,36 @@
 import { motion } from "motion/react";
-import { CheckCircle2, TrendingUp, ShieldCheck, Users, BarChart3, Briefcase } from "lucide-react";
+import { CheckCircle2, TrendingUp, ShieldCheck, Users, Briefcase, BarChart3, Building2 } from "lucide-react";
 
 const services = [
   {
-    title: "Audit & Assurance",
-    icon: ShieldCheck,
-    description: "We provide independent and objective assurance that your financial statements are accurate and compliant with all relevant standards.",
-    features: ["Statutory Audit", "Internal Audit", "Due Diligence", "Risk Assessment"]
-  },
-  {
-    title: "Tax Consultancy",
-    icon: TrendingUp,
-    description: "Our tax experts help you navigate the complex landscape of local and international tax laws to optimize your position.",
-    features: ["Corporate Tax Planning", "Indirect Tax (GST/VAT)", "Transfer Pricing", "Individual Tax Filing"]
-  },
-  {
-    title: "Business Advisory",
+    title: "Business Advisory Services",
     icon: Users,
-    description: "Strategic guidance to help you grow your business, improve operations, and navigate transitions effectively.",
-    features: ["M&A Advisory", "Business Valuation", "Restructuring", "Growth Strategy"]
+    description: "We deliver tailored, innovative solutions for complex business challenges. Led by industry specialists, our advisory services focus on maximizing value through a broad range of competencies, including one-stop liaison for start-ups and specialized support for financial institutions.",
+    features: ["One-stop liaison service", "Start-up support", "Financial institution services", "Value proposition focus"]
   },
   {
-    title: "Financial Planning",
+    title: "Management Consultancy",
+    icon: TrendingUp,
+    description: "We enhance organizational performance by analyzing current operational challenges and developing robust growth strategies. Our integrated approach covers strategic planning, account outsourcing, transactional services, and compliance management.",
+    features: ["Performance enhancement", "Strategic planning", "Account outsourcing", "Compliance outsourcing"]
+  },
+  {
+    title: "Liaisoning Services",
+    icon: Building2,
+    description: "End-to-end consultancy for government schemes and regulatory compliance. We handle documentation, rigorous follow-ups with departments, and facilitate interactions with major PSUs like Coal India, ONGC, and GAIL to ensure smooth industrial promotion.",
+    features: ["Government scheme consultancy", "Regulatory compliance", "PSU facilitation", "Real-time updates"]
+  },
+  {
+    title: "Business Due Diligence",
+    icon: ShieldCheck,
+    description: "Professional, in-depth due diligence to safeguard investments. Our transparent approach identifies critical risks, quantifies tax exposures, and evaluates the quality of assets and projected earnings to ensure informed decision-making.",
+    features: ["Risk identification", "Asset evaluation", "Tax exposure analysis", "Transactional due diligence"]
+  },
+  {
+    title: "Banking & Financial Services",
     icon: BarChart3,
-    description: "Comprehensive wealth management and financial planning services for businesses and individuals.",
-    features: ["Retirement Planning", "Investment Strategy", "Estate Planning", "Cash Flow Analysis"]
-  },
-  {
-    title: "Corporate Finance",
-    icon: Briefcase,
-    description: "Expert assistance in capital raising, debt restructuring, and financial modeling for complex projects.",
-    features: ["Capital Raising", "Debt Advisory", "Project Finance", "Financial Modeling"]
-  },
-  {
-    title: "Compliance & Governance",
-    icon: CheckCircle2,
-    description: "Ensuring your business meets all regulatory requirements and maintains the highest standards of corporate governance.",
-    features: ["Company Secretarial", "Regulatory Compliance", "ESG Reporting", "Board Advisory"]
+    description: "Comprehensive advisory for lenders, borrowers, and financial institutions. We specialize in complex deal management, debt syndication, project finance, and representing clients in regulatory frameworks and legal recovery proceedings.",
+    features: ["Project finance", "Debt syndication", "Debt restructuring", "Regulatory representation"]
   }
 ];
 
