@@ -11,7 +11,6 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    subject: "",
     message: ""
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -59,8 +58,8 @@ export default function Contact() {
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-serif font-bold text-stone-900 mb-1">Our Office</h3>
-                  <p className="text-stone-600">123 Financial District, Suite 500<br />New York, NY 10004</p>
+                  <h3 className="text-xl font-serif font-bold text-stone-900 mb-1">Head Office</h3>
+                  <p className="text-stone-600">P-20, Ground Floor, South Extention - II<br />New Delhi - 110049</p>
                 </div>
               </div>
 
@@ -70,7 +69,10 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="text-xl font-serif font-bold text-stone-900 mb-1">Phone</h3>
-                  <p className="text-stone-600">+1 (555) 123-4567</p>
+                  <div className="space-y-1 text-stone-600">
+                    <p>Tel: 011-40581276 (10 AM - 06 PM)</p>
+                    <p>Mob: +91-96500-67855</p>
+                  </div>
                 </div>
               </div>
 
@@ -80,7 +82,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="text-xl font-serif font-bold text-stone-900 mb-1">Email</h3>
-                  <p className="text-stone-600">contact@raysmaven.com</p>
+                  <p className="text-stone-600">raysmaven@gmail.com</p>
                 </div>
               </div>
             </div>
@@ -89,12 +91,8 @@ export default function Contact() {
               <h4 className="font-serif font-bold text-xl text-stone-900">Business Hours</h4>
               <div className="space-y-2 text-stone-600">
                 <div className="flex justify-between">
-                  <span>Monday - Friday</span>
-                  <span>9:00 AM - 6:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Saturday</span>
-                  <span>10:00 AM - 2:00 PM</span>
+                  <span>Monday - Saturday</span>
+                  <span>10:00 AM - 6:00 PM</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Sunday</span>
@@ -129,7 +127,7 @@ export default function Contact() {
                   <Input 
                     id="name" 
                     placeholder="John Doe" 
-                    className={errors.name ? "border-red-500" : ""}
+                    className={cn("placeholder:opacity-50", errors.name ? "border-red-500" : "")}
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   />
@@ -142,7 +140,7 @@ export default function Contact() {
                     id="email" 
                     type="email" 
                     placeholder="john@example.com" 
-                    className={errors.email ? "border-red-500" : ""}
+                    className={cn("placeholder:opacity-50", errors.email ? "border-red-500" : "")}
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   />
@@ -150,21 +148,11 @@ export default function Contact() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="subject">Subject</Label>
-                  <Input 
-                    id="subject" 
-                    placeholder="How can we help?" 
-                    value={formData.subject}
-                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  />
-                </div>
-
-                <div className="space-y-2">
                   <Label htmlFor="message">Message</Label>
                   <Textarea 
                     id="message" 
                     placeholder="Tell us about your requirements..." 
-                    className={cn("min-h-[150px]", errors.message ? "border-red-500" : "")}
+                    className={cn("min-h-[150px] placeholder:opacity-50", errors.message ? "border-red-500" : "")}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   />

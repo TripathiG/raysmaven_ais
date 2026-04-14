@@ -1,6 +1,5 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 
 const posts = [
   {
@@ -103,21 +102,6 @@ export default function Blog() {
               </div>
             </motion.article>
           ))}
-        </div>
-
-        <div className="mt-20 p-12 bg-warm-cream rounded-[3rem] text-center space-y-8">
-          <h2 className="text-4xl font-serif font-bold text-stone-900">Subscribe to our Newsletter</h2>
-          <p className="text-stone-600 max-w-xl mx-auto">Get the latest industry insights and company news delivered directly to your inbox every month.</p>
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <input 
-              type="email" 
-              placeholder="Your email address" 
-              className="flex-grow px-6 py-4 rounded-full border border-stone-200 focus:outline-none focus:ring-2 focus:ring-olive/20"
-            />
-            <Button className="bg-olive hover:bg-olive-dark text-warm-white rounded-full px-8 py-4">
-              Subscribe
-            </Button>
-          </div>
         </div>
       </div>
     </div>

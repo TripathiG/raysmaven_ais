@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { Link } from "react-router-dom";
 
 const teamMembers = [
   {
@@ -80,7 +81,7 @@ export default function Team() {
                       <h3 className="text-3xl font-serif font-bold text-stone-900 leading-tight">{member.name}</h3>
                       <p className="text-stone-500 font-semibold uppercase tracking-widest text-[10px]">{member.role}</p>
                     </div>
-                    <p className="text-stone-600 text-sm leading-relaxed border-t border-stone-200 pt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-4 group-hover:translate-y-0">
+                    <p className="text-stone-600 text-sm leading-relaxed border-t border-stone-200 pt-4 transition-all duration-500">
                       {member.bio}
                     </p>
                   </div>
@@ -92,13 +93,16 @@ export default function Team() {
           ))}
           
           {/* Empty slot for future hire or just to balance the grid */}
-          <div className="border-2 border-dashed border-stone-200 rounded-2xl flex flex-col items-center justify-center p-8 text-center space-y-4 min-h-[400px]">
-            <div className="w-16 h-16 rounded-full bg-stone-100 flex items-center justify-center text-stone-400">
+          <Link 
+            to="/contact" 
+            className="border-2 border-dashed border-stone-200 rounded-3xl flex flex-col items-center justify-center p-8 text-center space-y-4 min-h-[400px] transition-all duration-500 hover:border-olive hover:bg-olive/5 group"
+          >
+            <div className="w-16 h-16 rounded-full bg-stone-100 flex items-center justify-center text-stone-400 group-hover:bg-olive group-hover:text-warm-white transition-colors duration-500">
               <span className="text-2xl">+</span>
             </div>
-            <h3 className="text-xl font-serif font-bold text-stone-400">Join Our Team</h3>
-            <p className="text-stone-400 text-sm">We're always looking for exceptional talent to join our growing firm.</p>
-          </div>
+            <h3 className="text-xl font-serif font-bold text-stone-400 group-hover:text-stone-900 transition-colors duration-500">Join Our Team</h3>
+            <p className="text-stone-400 text-sm group-hover:text-stone-600 transition-colors duration-500">We're always looking for exceptional talent to join our growing firm.</p>
+          </Link>
         </div>
       </div>
     </div>
