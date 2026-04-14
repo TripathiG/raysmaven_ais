@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
 
 export function Footer() {
   return (
@@ -19,14 +19,14 @@ export function Footer() {
               Your trusted partner in growth and innovation. Providing professional financial services and strategic consultancy to businesses worldwide.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full border border-stone-700 flex items-center justify-center hover:bg-olive hover:border-olive transition-colors">
+              <a 
+                href="https://www.linkedin.com/in/m-t-and-company-881283343?utm_source=share_via&utm_content=profile&utm_medium=member_ios" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full border border-stone-700 flex items-center justify-center hover:bg-olive hover:border-olive transition-colors"
+                aria-label="LinkedIn"
+              >
                 <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-stone-700 flex items-center justify-center hover:bg-olive hover:border-olive transition-colors">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-stone-700 flex items-center justify-center hover:bg-olive hover:border-olive transition-colors">
-                <Facebook className="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -77,9 +77,9 @@ export function Footer() {
             © {new Date().getFullYear()} Rays Maven. All rights reserved.
           </p>
           <div className="flex gap-6 text-xs text-stone-500">
-            <a href="#" className="hover:text-warm-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-warm-white transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-warm-white transition-colors">Cookie Policy</a>
+            <Link to="/privacy" className="hover:text-warm-white transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-warm-white transition-colors">Terms of Service</Link>
+            <Link to="/cookies" className="hover:text-warm-white transition-colors">Cookie Policy</Link>
           </div>
         </div>
       </div>

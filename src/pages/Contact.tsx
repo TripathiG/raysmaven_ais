@@ -43,7 +43,7 @@ export default function Contact() {
   return (
     <div className="pt-32 pb-24">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
           <div className="space-y-12">
             <div className="space-y-6">
               <h1 className="text-5xl md:text-7xl font-serif font-bold text-stone-900">Let's Connect</h1>
