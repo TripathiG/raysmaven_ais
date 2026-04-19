@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
-import { ArrowRight, CheckCircle2, Quote, TrendingUp, ShieldCheck, Users, ChevronRight, BarChart3, User } from "lucide-react";
+import { ArrowRight, CheckCircle2, TrendingUp, ShieldCheck, Users, ChevronRight, BarChart3, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
@@ -153,43 +153,38 @@ export default function Home() {
             <p className="text-stone-600">Trusted by industry leaders worldwide.</p>
           </div>
           
-          {/* Logo Placeholders */}
-          <div className="flex flex-wrap justify-center gap-12 md:gap-24 mb-20 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-            {["Global Corp", "Tech Innovate", "Nexus Ltd", "Apex Systems", "Vanguard"].map((client, i) => (
-              <div key={i} className="flex items-center gap-2 font-serif text-2xl font-bold text-stone-400">
-                <div className="w-8 h-8 rounded bg-stone-200"></div>
-                {client}
-              </div>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              {
-                quote: "Rays Maven has been instrumental in our international expansion. Their strategic tax advice saved us significant resources.",
-                author: "Sarah Jenkins",
-                role: "CFO, Tech Innovate"
-              },
-              {
-                quote: "The level of professionalism and attention to detail during our annual audit was exceptional. Highly recommended.",
-                author: "Michael Chen",
-                role: "Director, Nexus Ltd"
-              }
-            ].map((testimonial, i) => (
-              <div key={i} className="bg-warm-cream p-10 rounded-3xl relative">
-                <Quote className="absolute top-8 left-8 w-12 h-12 text-olive/10" />
-                <div className="relative z-10 space-y-6">
-                  <p className="text-xl italic text-stone-800 leading-relaxed">"{testimonial.quote}"</p>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-stone-300"></div>
-                    <div>
-                      <p className="font-bold text-stone-900">{testimonial.author}</p>
-                      <p className="text-sm text-stone-500">{testimonial.role}</p>
-                    </div>
+          {/* Logo Marquee */}
+          <div className="relative mb-24">
+            <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
+              <div className="flex gap-16 md:gap-24 py-8 animate-marquee whitespace-nowrap">
+                {[...Array(2)].map((_, i) => (
+                  <div key={i} className="flex gap-16 md:gap-24 items-center">
+                    {[
+                      { name: "Bajaj", logo: "/logos/Bajaj_logo.png" },
+                      { name: "Oriental Bank", logo: "/logos/oriental-bank.com.png" },
+                      { name: "GAIL", logo: "/logos/GAIL_Logo.svg.png" },
+                      { name: "Lalitpur", logo: "/logos/Lalitpur.png" },
+                      { name: "Bajaj Energy", logo: "/logos/Bajaj energy.png" },
+                      { name: "Allahabad Bank", logo: "/logos/allahabad-bank.png" },
+                      { name: "PFC", logo: "/logos/Power_Finance_Corporation_Logo.svg.png" },
+                      { name: "Uttam Sugars", logo: "/logos/uttam sugars.png" },
+                      { name: "Phil Group", logo: "/logos/phil group.png" },
+                      { name: "PNB", logo: "/logos/pnb.png" },
+                      { name: "Bajaj Electricals", logo: "/logos/bajaj-electricals.png" }
+                    ].map((client, index) => (
+                      <div key={index} className="flex items-center grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 cursor-default">
+                        <img 
+                          src={client.logo} 
+                          alt={client.name} 
+                          className="h-12 md:h-16 w-auto object-contain max-w-[180px]"
+                          referrerPolicy="no-referrer"
+                        />
+                      </div>
+                    ))}
                   </div>
-                </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
