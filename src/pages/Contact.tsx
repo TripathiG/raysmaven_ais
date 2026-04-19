@@ -11,10 +11,13 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: ""
+    message: "",
+    honeypot: ""
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
@@ -28,13 +31,42 @@ export default function Contact() {
     return newErrors;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitError(null);
     const newErrors = validate();
+
     if (Object.keys(newErrors).length === 0) {
-      setIsSubmitted(true);
-      // In a real app, you'd send the data here
-      console.log("Form submitted:", formData);
+      setIsSubmitting(true);
+      
+      try {
+        const scriptUrl = import.meta.env.VITE_CONTACT_FORM_APPS_SCRIPT_URL;
+        
+        if (!scriptUrl) {
+          throw new Error("Target URL not configured. Please set VITE_CONTACT_FORM_APPS_SCRIPT_URL in your environment variables.");
+        }
+
+        const response = await fetch(scriptUrl, {
+          method: "POST",
+          mode: "no-cors", // Apps Script often requires no-cors for direct browser POSTs from different origins
+          cache: "no-cache",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        // Since we're using no-cors, we can't reliably read the response body or status.
+        // Usually, no-cors results in an opaque response.
+        // If it didn't throw an error, we assume success for the UI state.
+        setIsSubmitted(true);
+        setFormData({ name: "", email: "", message: "", honeypot: "" });
+      } catch (err: any) {
+        console.error("Submission error:", err);
+        setSubmitError(err.message || "Something went wrong. Please try again later.");
+      } finally {
+        setIsSubmitting(false);
+      }
     } else {
       setErrors(newErrors);
     }
@@ -122,6 +154,18 @@ export default function Contact() {
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Honeypot field for spam protection */}
+                <div className="hidden" aria-hidden="true">
+                  <input
+                    type="text"
+                    name="honeypot"
+                    tabIndex={-1}
+                    value={formData.honeypot}
+                    onChange={(e) => setFormData({ ...formData, honeypot: e.target.value })}
+                    autoComplete="off"
+                  />
+                </div>
+
                 <div className="space-y-2">
                   <Label htmlFor="name">Full Name</Label>
                   <Input 
@@ -159,8 +203,27 @@ export default function Contact() {
                   {errors.message && <p className="text-xs text-red-500 font-medium">{errors.message}</p>}
                 </div>
 
-                <Button type="submit" className="w-full bg-olive! text-warm-white! border border-olive! hover:bg-transparent! hover:text-olive! rounded-full py-6 text-lg transition-all duration-300">
-                  <Send className="w-5 h-5 mr-2" /> Send Message
+                {submitError && (
+                  <p className="text-sm text-red-500 font-medium bg-red-50 p-3 rounded-lg border border-red-100 italic">
+                    {submitError}
+                  </p>
+                )}
+
+                <Button 
+                  type="submit" 
+                  disabled={isSubmitting}
+                  className="w-full bg-olive! text-warm-white! border border-olive! hover:bg-transparent! hover:text-olive! rounded-full py-6 text-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? (
+                    <span className="flex items-center gap-2">
+                      <div className="w-5 h-5 border-2 border-warm-white border-t-transparent rounded-full animate-spin" />
+                      Sending...
+                    </span>
+                  ) : (
+                    <span className="flex items-center gap-2">
+                      <Send className="w-5 h-5 mr-2" /> Send Message
+                    </span>
+                  )}
                 </Button>
               </form>
             )}

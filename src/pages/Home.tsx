@@ -239,26 +239,29 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                title: "Navigating Global Tax Changes in 2026",
-                date: "Oct 12, 2025",
-                category: "Taxation"
+                title: "Navigating Global Tax Changes: Pillar Two Update",
+                date: "Jan 12, 2026",
+                category: "Taxation",
+                link: "https://www.oecd.org/en/topics/international-tax-reform.html"
               },
               {
-                title: "The Impact of AI on Corporate Auditing",
-                date: "Sep 28, 2025",
-                category: "Innovation"
+                title: "ICAI Digital Audit: Impact of AI on Assurance",
+                date: "Dec 21, 2025",
+                category: "Innovation",
+                link: "https://www.icai.org/post.html?post_id=18641"
               },
               {
-                title: "Sustainable Finance: A New Era for SMEs",
-                date: "Sep 15, 2025",
-                category: "Strategy"
+                title: "SEBI BRSR: A New Era for ESG Reporting",
+                date: "Nov 15, 2025",
+                category: "Compliance",
+                link: "https://www.sebi.gov.in/legal/circulars/may-2021/business-responsibility-and-sustainability-reporting-by-listed-entities_50096.html"
               }
             ].map((post, i) => (
-              <Link key={i} to="/blog" className="group">
+              <a key={i} href={post.link} target="_blank" rel="noopener noreferrer" className="group">
                 <article className="space-y-4">
                   <div className="aspect-video rounded-2xl overflow-hidden bg-stone-100 mb-6">
                     <img 
-                      src={`https://picsum.photos/seed/blog${i}/600/400`} 
+                      src={`https://picsum.photos/seed/blog-home-${i}/600/400`} 
                       alt={post.title} 
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       referrerPolicy="no-referrer"
@@ -273,7 +276,7 @@ export default function Home() {
                     {post.title}
                   </h3>
                 </article>
-              </Link>
+              </a>
             ))}
           </div>
         </div>

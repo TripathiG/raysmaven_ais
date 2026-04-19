@@ -3,52 +3,52 @@ import { Link } from "react-router-dom";
 
 const posts = [
   {
-    title: "Navigating Global Tax Changes in 2026",
-    excerpt: "The international tax landscape is shifting rapidly. Here's what your business needs to know about the latest OECD guidelines.",
-    date: "Oct 12, 2025",
+    title: "Navigating Global Tax Changes: Pillar Two Update",
+    excerpt: "The international tax landscape is shifting rapidly with the OECD's Pillar Two initiative. Discover how the 15% global minimum tax impacts cross-border operations.",
+    date: "Jan 12, 2026",
     category: "Taxation",
-    author: "David Sterling",
-    image: "https://picsum.photos/seed/blog1/800/500"
+    image: "https://picsum.photos/seed/tax/800/500",
+    link: "https://www.oecd.org/en/topics/international-tax-reform.html"
   },
   {
-    title: "The Impact of AI on Corporate Auditing",
-    excerpt: "Artificial Intelligence is transforming how we approach assurance. Discover the benefits of real-time data analysis in auditing.",
-    date: "Sep 28, 2025",
+    title: "ICAI Digital Audit: The Impact of AI on Assurance",
+    excerpt: "The Institute of Chartered Accountants of India is leading the digital transformation. Learn about new standards for technology-driven auditing practices.",
+    date: "Dec 21, 2025",
     category: "Innovation",
-    author: "Elena Rodriguez",
-    image: "https://picsum.photos/seed/blog2/800/500"
+    image: "https://picsum.photos/seed/audit/800/500",
+    link: "https://www.icai.org/post.html?post_id=18641"
   },
   {
-    title: "Sustainable Finance: A New Era for SMEs",
-    excerpt: "ESG reporting is no longer just for large corporations. Learn how small and medium enterprises can benefit from sustainable practices.",
-    date: "Sep 15, 2025",
-    category: "Strategy",
-    author: "Marcus Thorne",
-    image: "https://picsum.photos/seed/blog3/800/500"
-  },
-  {
-    title: "Preparing for a Successful Merger",
-    excerpt: "M&A activity is on the rise. We outline the critical financial steps to ensure your next merger or acquisition is a success.",
-    date: "Aug 30, 2025",
-    category: "Business",
-    author: "Sophia Chang",
-    image: "https://picsum.photos/seed/blog4/800/500"
-  },
-  {
-    title: "Wealth Management in a Volatile Market",
-    excerpt: "Strategies for protecting and growing your assets during periods of economic uncertainty and market fluctuations.",
-    date: "Aug 12, 2025",
-    category: "Finance",
-    author: "Robert Maven",
-    image: "https://picsum.photos/seed/blog5/800/500"
-  },
-  {
-    title: "The Future of Remote Work and Tax Nexus",
-    excerpt: "As remote work becomes permanent, businesses must understand the tax implications of employees working across state and national borders.",
-    date: "Jul 25, 2025",
+    title: "SEBI BRSR: A New Era for ESG Reporting in India",
+    excerpt: "ESG disclosures are now mandatory for the top 1,000 listed entities. Understand the Business Responsibility and Sustainability Reporting framework.",
+    date: "Nov 15, 2025",
     category: "Compliance",
-    author: "Isabella Vance",
-    image: "https://picsum.photos/seed/blog6/800/500"
+    image: "https://picsum.photos/seed/esg/800/500",
+    link: "https://www.sebi.gov.in/legal/circulars/may-2021/business-responsibility-and-sustainability-reporting-by-listed-entities_50096.html"
+  },
+  {
+    title: "M&A Regulatory Framework under Companies Act",
+    excerpt: "Mergers and acquisitions require strict adherence to the Companies Act, 2013. Explore the critical legal and financial steps for successful corporate restructuring.",
+    date: "Oct 30, 2025",
+    category: "Business",
+    image: "https://picsum.photos/seed/merger/800/500",
+    link: "https://www.mca.gov.in/content/mca/global/en/acts-rules/ebooks/companies-act.html"
+  },
+  {
+    title: "FEMA Compliance: Investment and Asset Management",
+    excerpt: "The Foreign Exchange Management Act governs international investment. Stay updated with the latest RBI guidelines on cross-border wealth management.",
+    date: "Sep 12, 2025",
+    category: "Finance",
+    image: "https://picsum.photos/seed/fema/800/500",
+    link: "https://www.rbi.org.in/Scripts/Fema.aspx"
+  },
+  {
+    title: "Income Tax India: Latest Compliance Circulars",
+    excerpt: "Stay updated with the latest notifications from the Income Tax Department regarding corporate tax, residential status, and TDS compliance for 2026.",
+    date: "Aug 25, 2025",
+    category: "Compliance",
+    image: "https://picsum.photos/seed/incometax/800/500",
+    link: "https://incometaxindia.gov.in/Pages/communications/circulars.aspx"
   }
 ];
 
@@ -73,14 +73,21 @@ export default function Blog() {
               transition={{ delay: i * 0.1 }}
               className="group flex flex-col"
             >
-              <div className="aspect-[16/10] rounded-3xl overflow-hidden bg-stone-100 mb-8">
-                <img 
-                  src={post.image} 
-                  alt={post.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
+              <a 
+                href={post.link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <div className="aspect-[16/10] rounded-3xl overflow-hidden bg-stone-100 mb-8">
+                  <img 
+                    src={post.image} 
+                    alt={post.title} 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+              </a>
               <div className="space-y-4 flex-grow">
                 <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-olive">
                   <span>{post.category}</span>
@@ -88,17 +95,11 @@ export default function Blog() {
                   <span className="text-stone-400">{post.date}</span>
                 </div>
                 <h3 className="text-3xl font-serif font-bold text-stone-900 group-hover:text-olive transition-colors leading-tight">
-                  <Link to={`/blog`}>{post.title}</Link>
+                  <a href={post.link} target="_blank" rel="noopener noreferrer">{post.title}</a>
                 </h3>
                 <p className="text-stone-600 leading-relaxed line-clamp-3">
                   {post.excerpt}
                 </p>
-              </div>
-              <div className="pt-6 mt-auto">
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-stone-200"></div>
-                  <span className="text-sm font-semibold text-stone-900">{post.author}</span>
-                </div>
               </div>
             </motion.article>
           ))}
