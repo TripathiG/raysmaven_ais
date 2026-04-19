@@ -8,7 +8,7 @@ const posts = [
     date: "Jan 12, 2026",
     category: "Taxation",
     image: "https://picsum.photos/seed/tax/800/500",
-    link: "https://www.oecd.org/en/topics/international-tax-reform.html"
+    link: "https://www.oecd.org/en/topics/sub-issues/global-minimum-tax/global-anti-base-erosion-model-rules-pillar-two.html"
   },
   {
     title: "ICAI Digital Audit: The Impact of AI on Assurance",
