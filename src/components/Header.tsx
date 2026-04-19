@@ -66,7 +66,7 @@ export function Header() {
               {link.name}
             </Link>
           ))}
-          <Button asChild nativeButton={false} className="bg-olive hover:bg-stone-900! text-warm-white! rounded-full px-6 transition-colors">
+          <Button asChild nativeButton={false} className="bg-olive! text-warm-white! border border-olive! hover:bg-transparent! hover:text-olive! rounded-full px-6 transition-all duration-300">
             <Link to="/contact">Get Started</Link>
           </Button>
         </nav>
@@ -75,7 +75,7 @@ export function Header() {
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="text-stone-900">
+              <Button variant="ghost" size="icon" className="text-stone-900! hover:text-olive! transition-all duration-300">
                 <Menu className="h-6 w-6" />
               </Button>
             </SheetTrigger>
@@ -94,7 +94,7 @@ export function Header() {
                     <ChevronRight className="h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity text-olive" />
                   </Link>
                 ))}
-                <Button asChild nativeButton={false} className="bg-olive hover:bg-stone-900! text-warm-white! rounded-full w-full mt-4 transition-colors">
+                <Button asChild nativeButton={false} className="bg-olive! text-warm-white! border border-olive! hover:bg-transparent! hover:text-olive! rounded-full w-full mt-4 transition-all duration-300">
                   <Link to="/contact">Contact Us</Link>
                 </Button>
               </div>

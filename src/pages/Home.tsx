@@ -31,10 +31,10 @@ export default function Home() {
                 Rays Maven provides comprehensive financial, tax, and strategic advisory services designed to help your business navigate complexity and achieve sustainable success.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild nativeButton={false} size="lg" className="bg-olive hover:bg-olive-dark text-warm-white rounded-full px-8 py-6 text-lg">
+                <Button asChild nativeButton={false} size="lg" className="bg-olive! text-warm-white! border border-olive! hover:bg-transparent! hover:text-olive! rounded-full px-8 py-6 text-lg transition-all duration-300">
                   <Link to="/contact">Book a Consultation</Link>
                 </Button>
-                <Button asChild nativeButton={false} variant="outline" size="lg" className="border-stone-300 text-stone-900 hover:bg-stone-100 rounded-full px-8 py-6 text-lg">
+                <Button asChild nativeButton={false} variant="outline" size="lg" className="border-stone-300! text-stone-900! hover:bg-stone-900! hover:text-warm-white! hover:border-stone-900! rounded-full px-8 py-6 text-lg transition-all duration-300">
                   <Link to="/services">Explore Services</Link>
                 </Button>
               </div>
@@ -84,7 +84,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <Button asChild nativeButton={false} variant="link" className="text-olive p-0 h-auto text-lg font-semibold group">
+              <Button asChild nativeButton={false} variant="link" className="text-olive! hover:text-stone-900! p-0 h-auto text-lg font-semibold group transition-all duration-300">
                 <Link to="/about" className="flex items-center gap-2">
                   Learn more about our firm <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </Link>
@@ -128,7 +128,7 @@ export default function Home() {
                   </div>
                   <h3 className="text-2xl font-serif font-bold text-stone-900">{service.title}</h3>
                   <p className="text-stone-600 leading-relaxed">{service.desc}</p>
-                  <Button asChild nativeButton={false} variant="link" className="text-olive p-0 h-auto font-semibold group/btn">
+                  <Button asChild nativeButton={false} variant="link" className="text-olive! hover:text-stone-900! p-0 h-auto font-semibold group/btn transition-all duration-300">
                     <Link to="/services" className="flex items-center gap-2">
                       Read more <ChevronRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
                     </Link>
@@ -138,7 +138,7 @@ export default function Home() {
             ))}
           </div>
           <div className="mt-16 text-center">
-            <Button asChild nativeButton={false} className="bg-olive hover:bg-olive-dark text-warm-white rounded-full px-10 py-6">
+            <Button asChild nativeButton={false} className="bg-olive! text-warm-white! border border-olive! hover:bg-transparent! hover:text-olive! rounded-full px-10 py-6 transition-all duration-300">
               <Link to="/services">View All Services</Link>
             </Button>
           </div>
@@ -198,7 +198,7 @@ export default function Home() {
               <p className="text-lg text-stone-400 leading-relaxed">
                 Our team consists of seasoned professionals with decades of experience in global finance, law, and business strategy. We bring a diverse set of perspectives to every challenge.
               </p>
-              <Button asChild nativeButton={false} className="bg-olive hover:bg-olive-dark text-warm-white rounded-full px-10 py-6">
+              <Button asChild nativeButton={false} className="bg-olive! text-warm-white! border border-olive! hover:bg-transparent! hover:text-olive! rounded-full px-10 py-6 transition-all duration-300">
                 <Link to="/team">Meet Our Experts</Link>
               </Button>
             </div>
@@ -232,7 +232,7 @@ export default function Home() {
               <h2 className="text-4xl md:text-5xl font-serif font-bold text-stone-900">Industry Insights</h2>
               <p className="text-lg text-stone-600 max-w-xl">Stay updated with the latest trends in finance, taxation, and business innovation.</p>
             </div>
-            <Button asChild nativeButton={false} variant="outline" className="border-olive text-olive hover:bg-olive hover:text-warm-white rounded-full px-8">
+            <Button asChild nativeButton={false} variant="outline" className="border-olive! text-olive! hover:bg-olive! hover:text-warm-white! rounded-full px-8 transition-all duration-300">
               <Link to="/blog">View All News</Link>
             </Button>
           </div>
@@ -288,7 +288,7 @@ export default function Home() {
           <p className="text-xl text-warm-white/80 max-w-2xl mx-auto">
             Schedule a confidential consultation with our experts today and discover how we can transform your financial future.
           </p>
-          <Button asChild nativeButton={false} size="lg" className="bg-warm-white text-olive hover:bg-warm-cream rounded-full px-12 py-8 text-xl font-bold">
+          <Button asChild nativeButton={false} size="lg" className="bg-warm-white! text-olive! border border-olive! hover:bg-olive! hover:text-warm-white! rounded-full px-12 py-8 text-xl font-bold transition-all duration-300">
             <Link to="/contact">Get in Touch</Link>
           </Button>
         </div>

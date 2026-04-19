@@ -116,7 +116,7 @@ export default function Contact() {
                   <h3 className="text-3xl font-serif font-bold text-stone-900">Message Sent!</h3>
                   <p className="text-stone-600">Thank you for reaching out. One of our experts will get back to you within 24 hours.</p>
                 </div>
-                <Button onClick={() => setIsSubmitted(false)} variant="outline" className="rounded-full border-olive text-olive">
+                <Button onClick={() => setIsSubmitted(false)} variant="outline" className="rounded-full border-olive! text-olive! hover:bg-olive! hover:text-warm-white! transition-all duration-300">
                   Send another message
                 </Button>
               </motion.div>
@@ -159,7 +159,7 @@ export default function Contact() {
                   {errors.message && <p className="text-xs text-red-500 font-medium">{errors.message}</p>}
                 </div>
 
-                <Button type="submit" className="w-full bg-olive hover:bg-olive-dark text-warm-white rounded-full py-6 text-lg">
+                <Button type="submit" className="w-full bg-olive! text-warm-white! border border-olive! hover:bg-transparent! hover:text-olive! rounded-full py-6 text-lg transition-all duration-300">
                   <Send className="w-5 h-5 mr-2" /> Send Message
                 </Button>
               </form>
